@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  
+  form(id='calc', method='POST', action='/calc')
+          .form-group
+          label(for='first') First roman numeric
+          <br />
+          input(type='text', name='first', class='form-control', id='first', placeholder='Enter the first Roman numeral',required)
+          .form-group
+          label(for='second') Second roman numeric
+          <br />
+          input(type='text', name='second', class='form-control', id='second', placeholder='Enter the second Roman numeral',required)
+          .form-group
+          label(for='third') Third operator
+          <br />
+          input(type='text', name='third', class='form-control', id='third', placeholder='Enter the operator',required)
+          .form-group
+          button.btn.btn-default Submit
+
+  div(class="result") #{result} 
