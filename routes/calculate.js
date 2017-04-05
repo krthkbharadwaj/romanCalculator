@@ -20,8 +20,6 @@ exports.equation = function (first, second, third) {
     if(isNaN(f) || isNaN(s) || first.includes('-') || second.includes('-')){
         return "Please enter valid operands";
     }
-
-    arr.push(f); arr.push(s); 
     
     /**
      * parArr is the parent array which contains the key values pairs 
@@ -31,22 +29,26 @@ exports.equation = function (first, second, third) {
     parArr[f] = first;
     parArr[s] = second;
     //parArr[t] = third;
+ 
+    var n = '';
+    var result = 0;
+    result = eval(parseInt(f)+third+parseInt(s));
 
-    var n = arr.length;
-    var result = eval(parseInt(f)+third+parseInt(s));
-    console.log(result);
-    //return result;
+    if(result < 0){
+      n = '-';
+      result = result.toString().replace('-','');
+    }
     if(result !=0){
         var res = romanize(result);
         if(res=='error'){
             return "Roman conversion error";
         }else{
-            return res;
+            return n+res;
         }
     }else{
         var res = 0;
     }
-    return res;  
+    return n+res;  
 };
 
 /**
@@ -100,6 +102,9 @@ function getnextletter(roman, position) {
     return;
 }
 
+/**
+ * Numbers to Roman numerals conversion
+ */
 function romanize (num) {
     if (!+num)
         return "error";

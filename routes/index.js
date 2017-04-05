@@ -4,12 +4,12 @@ var calc = require('./calculate');
 
 /* default page */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Roman equation creator' });
+  res.render('index', { title: 'Mathematical operations with Roman numbers' });
 });
 
 /**Used for equation creator url, render the same page with result */
 router.post('/calc', function (req, res, next) {
-  res.render('index', { title: 'Roman equation creator', result: calc.equation(req.body.first, req.body.second, req.body.third) });
+  res.render('index', { title: 'Mathematical operations with roman numerals', result: calc.equation(req.body.first, req.body.second, req.body.third) });
 });
 
 module.exports = router;
